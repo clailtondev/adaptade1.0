@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptado - Entrar / Cadastrar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=OpenDyslexic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="animated-background flex items-center justify-center min-h-screen overflow-y-auto py-10">
+
+    <!-- Estrelas e Pipas de fundo para um visual lúdico -->
+    <svg class="sketch-star hidden md:block" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 2L61.2257 38.7743L98 38.7743L68.3871 61.2257L79.6129 97.9999L50 75.5486L20.3871 97.9999L31.6129 61.2257L2 38.7743L38.7743 38.7743L50 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg class="sketch-kite hidden md:block" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 2L98 50L50 98L2 50L50 2Z" stroke="white" stroke-width="2"/>
+        <path d="M50 98L20 120L30 90" stroke="white" stroke-width="2"/>
+        <path d="M2 50C22.8333 46.5 36.5 33.3333 50 2" stroke="white" stroke-width="2"/>
+    </svg>
+
+    <main id="main-container" class="bg-[#1a2a4f] bg-opacity-80 backdrop-blur-sm shadow-2xl rounded-2xl p-8 md:p-12 w-11/12 max-w-lg text-[#e0f2f7] transition-all duration-500">
+
+        <!-- Etapa 1: Seleção de Perfil -->
+        <div id="step-1" class="form-step active">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2">Bem-vindo(a) ao Adaptade!</h1>
+                <p class="text-blue-200">Selecione seu perfil para continuar</p>
+                <hr class="border-t-2 border-blue-500 w-1/3 mx-auto mt-4">
+            </div>
+            <div class="space-y-4">
+                <label class="flex items-center p-4 bg-white text-[#1a2a4f] rounded-lg shadow-md cursor-pointer border-4 border-yellow-400">
+                    <input type="radio" name="role" value="aluno" class="form-radio h-5 w-5" checked>
+                    <span class="ml-4 text-lg font-semibold">Aluno(a)</span>
+                </label>
+                <label class="flex items-center p-4 bg-white text-[#1a2a4f] rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-yellow-400">
+                    <input type="radio" name="role" value="professor" class="form-radio h-5 w-5">
+                    <span class="ml-4 text-lg font-semibold">Professor(a)</span>
+                </label>
+                <label class="flex items-center p-4 bg-white text-[#1a2a4f] rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-yellow-400">
+                    <input type="radio" name="role" value="profissional_saude_educacao" class="form-radio h-5 w-5">
+                    <span class="ml-4 text-lg font-semibold">Profissional da Saúde / Educação</span>
+                </label>
+                <label class="flex items-center p-4 bg-white text-[#1a2a4f] rounded-lg shadow-md cursor-pointer border-4 border-transparent hover:border-yellow-400">
+                    <input type="radio" name="role" value="instituicao" class="form-radio h-5 w-5">
+                    <span class="ml-4 text-lg font-semibold">Instituição</span>
+                </label>
+            </div>
+            <button id="proceed-button" class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-4 rounded-lg mt-8">
+                Prosseguir
+            </button>
+        </div>
+
+        <!-- Etapa 2: Formulário de Cadastro da Instituição (Exclusivo) -->
+        <div id="step-2" class="form-step">
+            <div class="text-center mb-8">
+                <div class="flex justify-center items-center mb-2">
+                    <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v2.158a2 2 0 01-1.106 1.79l-1.894.894a2 2 0 00-1.106 1.79V12l-1 1h-2l-1-1v-2.158a2 2 0 00-1.106-1.79l-1.894-.894A2 2 0 014 6.158V5l-1-1z"></path></svg>
+                    <h1 class="text-3xl font-bold">Cadastro da Instituição</h1>
+                </div>
+                <p class="text-blue-200">Preencha os dados da sua instituição para criar sua conta.</p>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label for="institution-name" class="block mb-1 text-sm font-medium text-blue-200">Nome da Instituição</label>
+                    <input type="text" id="institution-name" placeholder="Nome completo da instituição" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                </div>
+                <div>
+                    <label for="institution-type" class="block mb-1 text-sm font-medium text-blue-200">Tipo de Instituição</label>
+                    <select id="institution-type" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                        <option value="">Selecione o tipo</option>
+                        <option value="publica">Pública</option>
+                        <option value="privada">Privada</option>
+                    </select>
+                </div>
+                <div id="public-institution-fields" class="hidden space-y-4">
+                    <div>
+                        <label for="institution-cnpj-public" class="block mb-1 text-sm font-medium text-blue-200">CNPJ</label>
+                        <input type="text" id="institution-cnpj-public" placeholder="XX.XXX.XXX/XXXX-XX" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    </div>
+                    <div>
+                        <label for="institution-inep-public" class="block mb-1 text-sm font-medium text-blue-200">Código INEP</label>
+                        <input type="text" id="institution-inep-public" placeholder="Código INEP da instituição" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    </div>
+                </div>
+                <div id="private-institution-fields" class="hidden space-y-4">
+                    <div>
+                        <label for="institution-cnpj-private" class="block mb-1 text-sm font-medium text-blue-200">CNPJ</label>
+                        <input type="text" id="institution-cnpj-private" placeholder="XX.XXX.XXX/XXXX-XX" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    </div>
+                    <div>
+                        <label for="institution-contact-person" class="block mb-1 text-sm font-medium text-blue-200">Pessoa de Contato</label>
+                        <input type="text" id="institution-contact-person" placeholder="Nome do contato principal" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    </div>
+                </div>
+                <div>
+                    <label for="institution-email" class="block mb-1 text-sm font-medium text-blue-200">Email Institucional</label>
+                    <input type="email" id="institution-email" placeholder="contato@escola.com" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                </div>
+                <div>
+                    <label for="institution-phone" class="block mb-1 text-sm font-medium text-blue-200">Telefone Institucional</label>
+                    <input type="tel" id="institution-phone" placeholder="86 3215-5000" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                </div>
+            </form>
+            <div class="flex flex-col md:flex-row gap-4 mt-8">
+                <button id="back-to-role-selection" class="w-full bg-gray-500 hover:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Voltar
+                </button>
+                <button id="continue-institution-registration" class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Continuar Cadastro
+                </button>
+            </div>
+            <p class="text-center mt-6">
+                <a href="#" id="go-to-login-from-institution-register" class="text-blue-300 hover:text-white">Já tem conta? Login</a>
+            </p>
+        </div>
+
+        <!-- Etapa 3: Definição de Senha (para Instituição) -->
+        <div id="step-3" class="form-step">
+            <div class="text-center mb-8">
+                <div class="flex justify-center items-center mb-2">
+                    <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2v5a2 2 0 01-2 2h-5a2 2 0 01-2-2V9a2 2 0 012-2h5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-4-4m0 0l-4 4m4-4l4 4"></path></svg>
+                    <h1 class="text-3xl font-bold">Defina sua Senha</h1>
+                </div>
+                <p class="text-blue-200">Escolha uma senha segura para a conta da sua instituição.</p>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label for="password" class="block mb-1 text-sm font-medium text-blue-200">Senha</label>
+                    <input type="password" id="password" placeholder="Sua senha" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                </div>
+                <div>
+                    <label for="confirm-password" class="block mb-1 text-sm font-medium text-blue-200">Confirme a Senha</label>
+                    <input type="password" id="confirm-password" placeholder="Confirme sua senha" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                </div>
+            </form>
+            <div class="flex flex-col md:flex-row gap-4 mt-8">
+                <button id="back-to-institution-registration" class="w-full bg-gray-500 hover:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Voltar
+                </button>
+                <button id="finalize-institution-registration" class="w-full bg-green-500 hover:bg-green-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Finalizar Cadastro
+                </button>
+            </div>
+            <p class="text-center mt-6">
+                <a href="#" id="go-to-login-from-password" class="text-blue-300 hover:text-white">Já tem conta? Login</a>
+            </p>
+        </div>
+
+        <!-- Etapa 4: Formulário de Login (para todos os perfis) -->
+        <div id="step-4" class="form-step">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2">Login</h1>
+                <p class="text-blue-200">Acesse sua conta na plataforma Adaptade</p>
+                <hr class="border-t-2 border-blue-500 w-1/3 mx-auto mt-4">
+            </div>
+            <form class="space-y-6">
+                <div>
+                    <label for="login-email" class="block mb-1 text-sm font-medium text-blue-200">Email:</label>
+                    <input type="email" id="login-email" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                </div>
+                <div>
+                    <label for="login-password" class="block mb-1 text-sm font-medium text-blue-200">Senha:</label>
+                    <input type="password" id="login-password" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                </div>
+            </form>
+            <div class="flex flex-col md:flex-row gap-4 mt-8">
+                <button id="back-to-role-selection-from-login" class="w-full bg-gray-500 hover:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Voltar à Seleção de Perfil
+                </button>
+                <button id="handle-login" class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Entrar
+                </button>
+            </div>
+            <p class="text-center mt-6">
+                <a href="#" id="go-to-institution-register-from-login" class="text-blue-300 hover:text-white">É uma instituição e ainda não tem conta? Cadastre-se</a>
+            </p>
+        </div>
+
+    </main>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

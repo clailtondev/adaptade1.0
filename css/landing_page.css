@@ -1,0 +1,57 @@
+/* Estilos específicos para a Landing Page */
+
+/* Carrossel */
+#carousel-content {
+    min-height: 300px; /* Garante altura mínima para o conteúdo do carrossel */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item {
+    position: absolute; /* Permite sobreposição para a transição */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out; /* Transição para o fade */
+}
+
+.carousel-item.active {
+    opacity: 1;
+    position: relative; /* Traz para o fluxo normal quando ativo */
+}
+
+/* Animações para o carrossel */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Efeitos para os cards de recursos */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Botões de navegação do carrossel */
+#carousel-prev, #carousel-next {
+    cursor: pointer;
+    user-select: none; /* Evita seleção de texto ao clicar */
+}

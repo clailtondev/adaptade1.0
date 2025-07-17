@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamnese do Aluno - Adaptado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=OpenDyslexic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="animated-background flex items-center justify-center min-h-screen overflow-y-auto py-10">
+
+    <!-- Elementos visuais de fundo para um ambiente acolhedor -->
+    <svg class="sketch-star hidden md:block" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 2L61.2257 38.7743L98 38.7743L68.3871 61.2257L79.6129 97.9999L50 75.5486L20.3871 97.9999L31.6129 61.2257L2 38.7743L38.7743 38.7743L50 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg class="sketch-kite hidden md:block" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 2L98 50L50 98L2 50L50 2Z" stroke="white" stroke-width="2"/>
+        <path d="M50 98L20 120L30 90" stroke="white" stroke-width="2"/>
+        <path d="M2 50C22.8333 46.5 36.5 33.3333 50 2" stroke="white" stroke-width="2"/>
+    </svg>
+
+    <main id="main-container" class="bg-[#1a2a4f] bg-opacity-80 backdrop-blur-sm shadow-2xl rounded-2xl p-8 md:p-12 w-11/12 max-w-lg text-[#e0f2f7] transition-all duration-500">
+
+        <!-- Anamnese Etapa 1: Motivação para o Apoio -->
+        <div id="anamnesis-step-1" class="anamnesis-step active">
+            <div class="progress-bar-container mb-6 bg-blue-700 rounded-full h-2">
+                <div class="progress-bar bg-yellow-400 h-2 rounded-full" style="width: 16%;"></div>
+                <p class="text-center text-sm mt-2">Etapa 1 de 6</p>
+            </div>
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2">1. Motivação para o Apoio</h1>
+                <p class="text-blue-200">Vamos entender o que te trouxe até a plataforma Adaptado.</p>
+            </div>
+            <form class="space-y-6">
+                <div>
+                    <label for="motivation-description" class="block mb-1 text-sm font-medium text-blue-200">O que motivou a família a buscar nosso apoio?</label>
+                    <textarea id="motivation-description" rows="4" placeholder="Descreva brevemente as principais preocupações, os objetivos desejados com o apoio da plataforma, ou o que você espera que melhore." class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                </div>
+                <div>
+                    <p class="block mb-2 text-lg font-medium">Há quanto tempo essas dificuldades foram notadas?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="difficulty_duration" value="menos_6_meses" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Menos de 6 meses</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="difficulty_duration" value="entre_6_meses_1_ano" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Entre 6 meses e 1 ano</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="difficulty_duration" value="mais_1_ano" class="form-radio h-5 w-5 text-yellow-400" checked>
+                            <span class="ml-2 text-white">Mais de 1 ano</span>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <p class="block mb-2 text-lg font-medium">Quem te indicou para buscar este apoio?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="indication_source" value="propria_escola" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">A própria escola</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="indication_source" value="profissional_saude" class="form-radio h-5 w-5 text-yellow-400" checked>
+                            <span class="ml-2 text-white">Um profissional de saúde (médico, psicólogo, etc.)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="indication_source" value="iniciativa_familia" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Iniciativa da família</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="indication_source" value="outro" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Outro:</span>
+                        </label>
+                        <input type="text" id="other-indication-source" placeholder="Qual?" class="w-full p-2 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] hidden">
+                    </div>
+                </div>
+            </form>
+            <div class="flex flex-col md:flex-row gap-4 mt-8">
+                <button onclick="window.location.href='index.html'" class="w-full bg-gray-500 hover:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Sair e Voltar
+                </button>
+                <button onclick="nextAnamnesisStep(2)" class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Próximo
+                </button>
+            </div>
+        </div>
+
+        <!-- Anamnese Etapa 2: Histórico de Avaliação e Profissionais -->
+        <div id="anamnesis-step-2" class="anamnesis-step">
+            <div class="progress-bar-container mb-6 bg-blue-700 rounded-full h-2">
+                <div class="progress-bar bg-yellow-400 h-2 rounded-full" style="width: 33%;"></div>
+                <p class="text-center text-sm mt-2">Etapa 2 de 6</p>
+            </div>
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2">2. Histórico de Avaliação</h1>
+                <p class="text-blue-200">Informações sobre diagnósticos e acompanhamentos que você já teve.</p>
+            </div>
+            <form class="space-y-6">
+                <div>
+                    <p class="block mb-2 text-lg font-medium">Você possui algum laudo médico ou diagnóstico?</p>
+                    <div class="flex items-center space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="medical_report" value="sim" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Sim, já tenho um diagnóstico</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="medical_report" value="nao" class="form-radio h-5 w-5 text-yellow-400" checked>
+                            <span class="ml-2 text-white">Não tenho</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="medical_report" value="em_processo" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Estou em processo de avaliação</span>
+                        </label>
+                    </div>
+                </div>
+                <div id="medical-report-details" class="hidden space-y-4">
+                    <div>
+                        <label for="diagnosis" class="block mb-1 text-sm font-medium text-blue-200">Se sim, qual é o diagnóstico? (Ex: Dislexia, TDAH, TEA, Discalculia)</label>
+                        <input type="text" id="diagnosis" placeholder="Seu diagnóstico..." class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    </div>
+                    <div>
+                        <label for="attach-report" class="block mb-1 text-sm font-medium text-blue-200">Se tiver, anexe seu laudo aqui (PDF ou Imagem):</label>
+                        <input type="file" id="attach-report" accept=".pdf, .jpg, .png" class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-100 file:text-yellow-700 hover:file:bg-yellow-200"/>
+                    </div>
+                </div>
+                <div>
+                    <p class="block mb-2 text-lg font-medium">Você já passou por algum destes profissionais?</p>
+                    <div class="grid grid-cols-2 gap-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" name="professional" value="psicologo" class="form-checkbox h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Psicólogo</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="professional" value="psicopedagogo" class="form-checkbox h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Psicopedagogo</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="professional" value="terapeuta_ocupacional" class="form-checkbox h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Terapeuta Ocupacional</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="professional" value="fonoaudiologo" class="form-checkbox h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Fonoaudiólogo</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="professional" value="neuropediatra" class="form-checkbox h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Neuropediatra</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="professional" value="outro" class="form-checkbox h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Outro:</span>
+                        </label>
+                        <input type="text" id="other-professional" placeholder="Qual?" class="w-full p-2 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] hidden">
+                    </div>
+                </div>
+                <div>
+                    <p class="block mb-2 text-lg font-medium">Você faz algum acompanhamento atualmente?</p>
+                    <div class="flex items-center space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="current_accompaniment" value="sim" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Sim</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="current_accompaniment" value="nao" class="form-radio h-5 w-5 text-yellow-400" checked>
+                            <span class="ml-2 text-white">Não</span>
+                        </label>
+                    </div>
+                    <input type="text" id="accompaniment-details" placeholder="Se sim, quais profissionais ou terapias?" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400 mt-2 hidden">
+                </div>
+            </form>
+            <div class="flex flex-col md:flex-row gap-4 mt-8">
+                <button onclick="prevAnamnesisStep(1)" class="w-full bg-gray-500 hover:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Voltar
+                </button>
+                <button onclick="nextAnamnesisStep(3)" class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Próximo
+                </button>
+            </div>
+        </div>
+
+        <!-- Anamnese Etapa 3: Histórico Escolar -->
+        <div id="anamnesis-step-3" class="anamnesis-step">
+            <div class="progress-bar-container mb-6 bg-blue-700 rounded-full h-2">
+                <div class="progress-bar bg-yellow-400 h-2 rounded-full" style="width: 50%;"></div>
+                <p class="text-center text-sm mt-2">Etapa 3 de 6</p>
+            </div>
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2">3. Histórico Escolar</h1>
+                <p class="text-blue-200">Detalhes sobre sua trajetória na escola.</p>
+            </div>
+            <form class="space-y-6">
+                <div>
+                    <p class="block mb-2 text-lg font-medium">Você já repetiu de ano?</p>
+                    <div class="flex items-center space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="repeated_year" value="sim" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Sim</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="repeated_year" value="nao" class="form-radio h-5 w-5 text-yellow-400" checked>
+                            <span class="ml-2 text-white">Não</span>
+                        </label>
+                    </div>
+                    <input type="text" id="repeated-year-details" placeholder="Se sim, qual série e o motivo?" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400 mt-2 hidden">
+                </div>
+                <div>
+                    <p class="block mb-2 text-lg font-medium">Você trocou de escola com frequência?</p>
+                    <div class="flex items-center space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="frequent_school_changes" value="sim" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Sim</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="frequent_school_changes" value="nao" class="form-radio h-5 w-5 text-yellow-400" checked>
+                            <span class="ml-2 text-white">Não</span>
+                        </label>
+                    </div>
+                    <input type="text" id="school-change-details" placeholder="Se sim, quantas vezes e os principais motivos?" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400 mt-2 hidden">
+                </div>
+                <div>
+                    <label for="favorite-subjects" class="block mb-1 text-sm font-medium text-blue-200">Quais matérias você mais gosta ou tem facilidade?</label>
+                    <input type="text" id="favorite-subjects" placeholder="Ex: Matemática, Artes, Educação Física..." class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                </div>
+                <div>
+                    <label for="difficult-subjects" class="block mb-1 text-sm font-medium text-blue-200">Quais matérias você tem mais dificuldade?</label>
+                    <input type="text" id="difficult-subjects" placeholder="Ex: Português, História..." class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                </div>
+            </form>
+            <div class="flex flex-col md:flex-row gap-4 mt-8">
+                <button onclick="prevAnamnesisStep(2)" class="w-full bg-gray-500 hover:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Voltar
+                </button>
+                <button onclick="nextAnamnesisStep(4)" class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Próximo
+                </button>
+            </div>
+        </div>
+
+        <!-- Anamnese Etapa 4: Hábitos e Interesses -->
+        <div id="anamnesis-step-4" class="anamnesis-step">
+            <div class="progress-bar-container mb-6 bg-blue-700 rounded-full h-2">
+                <div class="progress-bar bg-yellow-400 h-2 rounded-full" style="width: 66%;"></div>
+                <p class="text-center text-sm mt-2">Etapa 4 de 6</p>
+            </div>
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2">4. Hábitos e Interesses</h1>
+                <p class="text-blue-200">Vamos conhecer um pouco sobre seu dia a dia e suas paixões!</p>
+            </div>
+            <form class="space-y-6">
+                <div>
+                    <label for="daily-routine" class="block mb-1 text-sm font-medium text-blue-200">Como é sua rotina diária? (horários de estudo, lazer, sono, refeições)</label>
+                    <textarea id="daily-routine" rows="4" placeholder="Descreva um dia típico: quando acorda, o que faz na escola, atividades depois da escola, hora de dormir..." class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                </div>
+                <div>
+                    <label for="hobbies" class="block mb-1 text-sm font-medium text-blue-200">Quais são seus hobbies e interesses? O que você adora fazer no tempo livre?</label>
+                    <input type="text" id="hobbies" placeholder="Ex: Desenhar, jogar vídeo game, ler livros, praticar esportes, ouvir música..." class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                </div>
+                <div>
+                    <label for="motivation-style" class="block mb-1 text-sm font-medium text-blue-200">O que mais te motiva a aprender ou a se engajar em tarefas?</label>
+                    <textarea id="motivation-style" rows="3" placeholder="Ex: Elogios, recompensas (adesivos, tempo de jogo), desafios, aprender brincando, ver vídeos..." class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                </div>
+            </form>
+            <div class="flex flex-col md:flex-row gap-4 mt-8">
+                <button onclick="prevAnamnesisStep(3)" class="w-full bg-gray-500 hover:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Voltar
+                </button>
+                <button onclick="nextAnamnesisStep(5)" class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Próximo
+                </button>
+            </div>
+        </div>
+
+        <!-- Anamnese Etapa 5: Comunicação e Interação Social & Medicação -->
+        <div id="anamnesis-step-5" class="anamnesis-step">
+            <div class="progress-bar-container mb-6 bg-blue-700 rounded-full h-2">
+                <div class="progress-bar bg-yellow-400 h-2 rounded-full" style="width: 83%;"></div>
+                <p class="text-center text-sm mt-2">Etapa 5 de 6</p>
+            </div>
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2">5. Comunicação, Interação e Saúde</h1>
+                <p class="text-blue-200">Como você se relaciona com o mundo e cuida da sua saúde.</p>
+            </div>
+            <form class="space-y-6">
+                <div>
+                    <label for="communication-style" class="block mb-1 text-sm font-medium text-blue-200">Como você se comunica melhor? (Falando, mostrando, escrevendo, desenhando)</label>
+                    <textarea id="communication-style" rows="3" placeholder="Ex: Prefiro conversar, apontar para as coisas, usar desenhos, escrever mensagens, ou me expresso de outras formas?" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                </div>
+                <div>
+                    <label for="social-interaction" class="block mb-1 text-sm font-medium text-blue-200">Como você interage com seus colegas e adultos?</label>
+                    <textarea id="social-interaction" rows="3" placeholder="Ex: Sou mais tímido(a), gosto de conversar bastante, prefiro brincar sozinho(a), adoro interagir em grupo, ou tenho dificuldade em fazer amigos?" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                </div>
+                <div>
+                    <p class="block mb-2 text-lg font-medium">Você faz uso de alguma medicação contínua?</p>
+                    <div class="flex items-center space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="continuous_medication" value="sim" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Sim</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="continuous_medication" value="nao" class="form-radio h-5 w-5 text-yellow-400" checked>
+                            <span class="ml-2 text-white">Não</span>
+                        </label>
+                    </div>
+                    <input type="text" id="medication-details" placeholder="Se sim, quais medicamentos e a dosagem?" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400 mt-2 hidden">
+                </div>
+            </form>
+            <div class="flex flex-col md:flex-row gap-4 mt-8">
+                <button onclick="prevAnamnesisStep(4)" class="w-full bg-gray-500 hover:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Voltar
+                </button>
+                <button onclick="nextAnamnesisStep(6)" class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Próximo
+                </button>
+            </div>
+        </div>
+
+        <!-- Anamnese Etapa 6: Necessidades Especiais e Observações Gerais (Opcional) -->
+        <div id="anamnesis-step-6" class="anamnesis-step">
+            <div class="progress-bar-container mb-6 bg-blue-700 rounded-full h-2">
+                <div class="progress-bar bg-yellow-400 h-2 rounded-full" style="width: 100%;"></div>
+                <p class="text-center text-sm mt-2">Etapa 6 de 6</p>
+            </div>
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold mb-2">6. Necessidades Especiais e Observações</h1>
+                <p class="text-blue-200">Para nos ajudar a te apoiar ainda melhor.</p>
+            </div>
+            <form class="space-y-6">
+                <div>
+                    <p class="block mb-2 text-lg font-medium">Você precisa de algum atendimento ou apoio especializado?</p>
+                    <div class="flex items-center space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="specialized_assistance" value="sim" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Sim</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="specialized_assistance" value="nao" class="form-radio h-5 w-5 text-yellow-400" checked>
+                            <span class="ml-2 text-white">Não</span>
+                        </label>
+                    </div>
+                    <textarea id="assistance_details" rows="2" placeholder="Se sim, qual tipo de apoio ou atendimento?" class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400 mt-2 hidden"></textarea>
+                </div>
+
+                <div>
+                    <p class="block mb-2 text-lg font-medium">Você tem alguma deficiência e precisa de algum suporte físico ou específico?</p>
+                    <div class="flex items-center space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="physical_support" value="sim" class="form-radio h-5 w-5 text-yellow-400">
+                            <span class="ml-2 text-white">Sim</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="physical_support" value="nao" class="form-radio h-5 w-5 text-yellow-400" checked>
+                            <span class="ml-2 text-white">Não</span>
+                        </label>
+                    </div>
+                    <textarea id="physical_support_details" rows="3" placeholder="Se sim, qual tipo de deficiência e qual suporte você precisa? Ex: Cadeira de rodas, óculos especiais, adaptações para escrita, etc." class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400 mt-2 hidden"></textarea>
+                </div>
+
+                <div>
+                    <label for="general-observations" class="block mb-1 text-sm font-medium text-blue-200">Por fim, deseja registrar alguma outra informação relevante sobre você? Isso pode incluir pontos fortes, desafios, como você prefere aprender, ou qualquer coisa que ajude a personalizar ainda mais sua experiência.</label>
+                    <textarea id="general-observations" rows="6" placeholder="Ex: Tenho mais energia de manhã, me sinto mais calmo(a) quando ouço música, não gosto de barulhos muito altos, adoro adesivos de recompensa, etc." class="w-full p-3 bg-[#e0f2f7] text-[#1a2a4f] rounded-lg placeholder-[#3b82f6] focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+                </div>
+            </form>
+            <div class="flex flex-col md:flex-row gap-4 mt-8">
+                <button onclick="prevAnamnesisStep(5)" class="w-full bg-gray-500 hover:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Voltar
+                </button>
+                <button onclick="submitAnamnesis()" class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 px-4 rounded-lg">
+                    Finalizar Anamnese
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/student_anamnesis.js"></script>
+</body>
+</html>

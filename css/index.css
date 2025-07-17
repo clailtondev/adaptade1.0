@@ -1,0 +1,55 @@
+/* Estilos específicos para a Landing Page */
+
+/* Carrossel */
+#hero {
+    position: relative; /* Necessário para posicionar os itens do carrossel */
+    min-height: 500px; /* Altura mínima para o carrossel */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item {
+    position: absolute; /* Permite sobreposição para a transição */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex; /* Garante que o conteúdo seja flexível */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    opacity: 0; /* Inicia invisível */
+    transition: opacity 0.5s ease-in-out; /* Transição suave para a opacidade */
+    z-index: 0; /* Ordem de empilhamento padrão */
+    pointer-events: none; /* Desabilita interações quando não está ativo */
+}
+
+.carousel-item.active {
+    opacity: 1; /* Totalmente visível quando ativo */
+    position: relative; /* Traz para o fluxo normal e acima dos outros */
+    z-index: 1; /* Garante que o slide ativo esteja na frente */
+    pointer-events: auto; /* Habilita interações para o slide ativo */
+}
+
+.carousel-item.hidden {
+    display: none; /* Esconde completamente o elemento, removendo-o do fluxo de layout */
+}
+
+/* Efeitos para os cards de recursos */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Botões de navegação do carrossel */
+#carousel-prev, #carousel-next {
+    cursor: pointer;
+    user-select: none; /* Evita seleção de texto ao clicar */
+}

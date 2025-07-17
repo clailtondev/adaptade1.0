@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Dyslexic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa, #93c5fd);
+    color: #e0f2f7;
+    transition: background-color 0.5s ease;
+}
+
+body.animated-background {
+    animation: gradientAnimation 15s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.form-step, .anamnesis-step {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    width: 100%;
+}
+
+.form-step.active, .anamnesis-step.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom radio and checkbox styles */
+input[type="radio"].form-radio,
+input[type="checkbox"].form-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #ccc;
+    border-radius: 50%; /* For radio */
+    width: 20px;
+    height: 20px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+input[type="checkbox"].form-checkbox {
+    border-radius: 4px; /* For checkbox */
+}
+
+/* Checked state */
+input[type="radio"].form-radio:checked {
+    border-color: #facc15; /* Yellow-400 */
+    background-color: #facc15; /* Yellow-400 */
+}
+
+input[type="checkbox"].form-checkbox:checked {
+    border-color: #facc15; /* Yellow-400 */
+    background-color: #facc15; /* Yellow-400 */
+}
+
+/* Inner circle for radio */
+input[type="radio"].form-radio:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #1a2a4f; /* Dark blue from your palette */
+    transform: translate(-50%, -50%);
+}
+
+/* Checkmark for checkbox */
+input[type="checkbox"].form-checkbox:checked::after {
+    content: '\2713'; /* Checkmark character */
+    font-size: 14px;
+    color: #1a2a4f; /* Dark blue */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+}
+
+/* Focus styles */
+input[type="radio"].form-radio:focus,
+input[type="checkbox"].form-checkbox:focus {
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.5); /* Yellow-400 with transparency */
+}
+
+.sketch-star {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 120px;
+    height: 120px;
+    opacity: 0.7;
+    animation: floatStar 10s ease-in-out infinite;
+}
+
+.sketch-kite {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 100px;
+    height: 100px;
+    opacity: 0.7;
+    animation: floatKite 12s ease-in-out infinite reverse;
+}
+
+@keyframes floatStar {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, -20px) rotate(15deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes floatKite {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-15px, 15px) rotate(-10deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.home-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal styles (shared across dashboards) */
+.modal-overlay {
+    transition: opacity 0.3s ease;
+}
+
+.modal-container {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+}
+
+.modal-container.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.prose {
+    max-width: 80ch; /* Limit line length for readability */
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #1a2a4f; /* Adjust heading color for contrast */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+.prose p {
+    margin-bottom: 1em;
+    color: #4a5568; /* Adjust paragraph color */
+}
+
+.prose ul {
+    list-style-type: disc;
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.prose ol {
+    list-style-type: decimal;
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.prose li {
+    margin-bottom: 0.5em;
+}
+
+.prose a {
+    color: #3b82f6; /* Link color */
+    text-decoration: underline;
+}
+
+.prose strong {
+    font-weight: 700;
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0e1a3c;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}

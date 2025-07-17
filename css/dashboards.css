@@ -1,0 +1,120 @@
+/* Estilos específicos para os Painéis (Dashboards) */
+
+
+
+/* Esconde as estrelas e pipas em dashboards com o novo layout */
+body:not(.animated-background) .sketch-star,
+body:not(.animated-background) .sketch-kite {
+    display: none;
+}
+
+/* Estilos para a barra lateral */
+aside {
+    min-height: 100vh; /* Garante que a barra lateral ocupe a altura total da viewport */
+    position: sticky; /* Fixa a barra lateral no topo ao rolar */
+    top: 0; /* Alinha ao topo */
+    overflow-y: auto; /* Permite rolagem se o conteúdo for muito longo */
+}
+
+/* Estilos para itens de navegação na barra lateral */
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    color: #e0f2f7; /* text-[#e0f2f7] */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item:hover {
+    background-color: #1a2a4f; /* bg-[#1a2a4f] */
+    color: #facc15; /* text-yellow-400 */
+}
+
+.nav-item.active {
+    background-color: #3b82f6; /* bg-blue-500 */
+    color: #ffffff; /* text-white */
+    font-weight: 700; /* font-bold */
+}
+
+.nav-item.active svg {
+    color: #ffffff; /* Garante que o ícone também mude de cor */
+}
+
+/* Estilos para os cartões nos dashboards */
+.dashboard-card, .activity-card, .medal-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.dashboard-card:hover, .activity-card:hover, .medal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    background-color: #0d1730;
+}
+
+/* Estilos para botões dentro dos cartões */
+.dashboard-card button,
+.activity-card button,
+.medal-card button {
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.dashboard-card button:hover,
+.activity-card button:hover,
+.medal-card button:hover {
+    transform: translateY(-2px);
+}
+
+/* Barra de progresso dentro dos cartões */
+.completion-bar {
+    height: 8px;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+.completion-bar div {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Layout para cabeçalhos de seção dentro do conteúdo principal */
+section header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #3b82f6;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsividade para a barra lateral */
+@media (max-width: 767px) {
+    body {
+        flex-direction: column; /* Empilha a barra lateral e o conteúdo em telas pequenas */
+    }
+    aside {
+        width: 100%;
+        min-height: auto;
+        border-bottom: 1px solid #3b82f6; /* Borda na parte inferior da barra lateral em mobile */
+        border-right: none;
+        padding-bottom: 1rem;
+    }
+    aside nav {
+        display: flex; /* Transforma a navegação em linha para mobile */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .nav-item {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem; /* text-sm */
+    }
+    .nav-item svg {
+        display: none; /* Esconde ícones em nav-items no mobile para economizar espaço */
+    }
+    section header p {
+        display: none; /* Esconde subtítulo em telas pequenas */
+    }
+}
